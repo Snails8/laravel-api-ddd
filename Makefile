@@ -39,6 +39,8 @@ install:
 	docker-compose exec app php artisan migrate:fresh --seed
 	docker-compose exec app chmod -R 777 storage
 	docker-compose exec app chmod -R 777 bootstrap/cache
+	docker-compose down
+	docker-compose up --build
 
 reinstall:
 	@make destroy
